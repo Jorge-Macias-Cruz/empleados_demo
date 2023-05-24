@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <div class="table-tittle ">
+        <div class="row">
+            <div class="col-md-9">
+                <h2>Registro de Personas</h2>
+            </div>
+
+        </div>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary" >
+                Agregar
+            </button>
+        </div>
+
+    </div>
+    <div *ngIf="showhide; else elseBlock">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha de nacimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let item of empleadosI;">
+                    <td width="20">{{item.id}}</td>
+                    <td width="20">{{item.nombre}}</td>
+                    <td width="20">{{item.apellido}}</td>
+                    <td width="20">{{item.fechaNacimiento}}</td>
+                    <td width="250">
+                        <button type="button" class="btn btn-primary">Editar</button>
+                        <button type="button" class="btn btn-danger">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ng-template #elseBlock>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha de nacimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="6" >
+                        No existen registros
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
+</div>
+<app-form-empleados (mostrar)="mostrarEmpleados($event)"></app-form-empleados>

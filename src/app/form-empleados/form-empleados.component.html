@@ -1,0 +1,42 @@
+<div class="col">
+    <div class="form-header">
+        <h3>Agregar un empleado</h3>
+    </div>
+        <form [formGroup]="formEmpleado" class="form-horizontal" (ngSubmit)="saveEmpleado()">
+                    <div class="form-group">
+                        <label for="exampleId">ID</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el ID del registro" formControlName="id">
+                        <div *ngIf="formEmpleado.get('id')?.touched && formEmpleado.get('id')?.invalid" class="alert alert-danger">
+                            <div *ngIf="formEmpleado.get('id')?.errors">Por favor ingresa el ID del registro</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleNombre">Nombre</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu nombre" formControlName="nombre">
+                        <div *ngIf="formEmpleado.get('nombre')?.touched && formEmpleado.get('nombre')?.invalid" class="alert alert-danger">
+                            <div *ngIf="formEmpleado.get('nombre')?.errors">Por favor ingresa el Nombre del registro</div>
+                        </div>
+                        </div>
+                    <div class="form-group">
+                        <label for="exampleApellido">Apellido</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Escribe tu apellido" formControlName="apellido">
+                    </div>
+                    <div *ngIf="formEmpleado.get('apellido')?.touched && formEmpleado.get('apellido')?.invalid" class="alert alert-danger">
+                        <div *ngIf="formEmpleado.get('apellido')?.errors">Por favor ingresa el Nombre del registro</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFechaNAcimiento">Fecha de nacimiento</label>
+                        <input type="date" class="form-control" id="exampleInputPassword1" formControlName="fechaNacimiento">
+                    </div>
+                    <div *ngIf="formEmpleado.get('fechaNacimiento')?.touched && formEmpleado.get('fechaNacimiento')?.invalid" class="alert alert-danger">
+                        <div *ngIf="formEmpleado.get('fechaNacimiento')?.errors">Por favor ingresa la fecha de nacimiento</div>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Los datos son correctos</label>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+        </form>
+</div>
